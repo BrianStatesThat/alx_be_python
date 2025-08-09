@@ -4,9 +4,9 @@ class Book:
         self.title = title
         self.author = author
 
-    def get_details(self):
-        """Return formatted details string for Book."""
-        return f"Book: {self.title} by {self.author}"
+    def __str__(self):
+        """Return string representation of the book."""
+        return f"'{self.title}' by {self.author}"
 
 
 class EBook(Book):
@@ -15,9 +15,9 @@ class EBook(Book):
         super().__init__(title, author)
         self.file_size = file_size  # in KB
 
-    def get_details(self):
-        """Return formatted details string for EBook."""
-        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+    def __str__(self):
+        """Return string representation of the ebook."""
+        return f"{super().__str__()} [EBook, {self.file_size}KB]"
 
 
 class PrintBook(Book):
@@ -26,9 +26,9 @@ class PrintBook(Book):
         super().__init__(title, author)
         self.page_count = page_count
 
-    def get_details(self):
-        """Return formatted details string for PrintBook."""
-        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+    def __str__(self):
+        """Return string representation of the print book."""
+        return f"{super().__str__()} [Print, {self.page_count} pages]"
 
 
 class Library:
@@ -41,6 +41,7 @@ class Library:
         self.books.append(book)
 
     def list_books(self):
-        """Print details of all books in the library in the required format."""
+        """Print details of all books in the library."""
+        print("Library Contents:")
         for book in self.books:
-            print(book.get_details())
+            print(f"- {book}")
