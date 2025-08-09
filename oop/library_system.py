@@ -42,9 +42,8 @@ class Library:
 
     def list_books(self):
         """Print details of all books in the library."""
-        print("Library Contents:")
         for book in self.books:
-            print(f"- {book}")
+            print(f"{book}")
 
 
 if __name__ == "__main__":
