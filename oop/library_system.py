@@ -45,3 +45,13 @@ class Library:
         print("Library Contents:")
         for book in self.books:
             print(f"- {book}")
+
+
+if __name__ == "__main__":
+    b1 = Book("Pride and Prejudice", "Jane Austen")
+    b2 = EBook("Snow Crash", "Neal Stephenson", 500)
+    b3 = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
+
+    print(b1)
+    print(b2)
+    print(b3)
